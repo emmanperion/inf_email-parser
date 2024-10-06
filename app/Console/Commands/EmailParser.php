@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Services\ParseEmailService;
 use Illuminate\Console\Command;
 use App\Models\SuccessfulEmail;
+use Illuminate\Support\Facades\Log;
 
 class EmailParser extends Command
 {
@@ -46,10 +47,12 @@ class EmailParser extends Command
 
         if ($emails->isEmpty()) {
             $this->info('No emails to parse.');
+            Log::info('No emails to parse.');
             return;
         }
 
         $this->info('Parsing emails...');
+        Log::info('Parsing emails...');
 
         foreach ($emails as $email) {
             $plainText = $this->parseEmailService->parseEmailContent($email->email);
@@ -59,5 +62,6 @@ class EmailParser extends Command
         }
 
         $this->info('Email parsing completed.');
+        Log::info('Email parsing completed.');
     }
 }
