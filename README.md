@@ -54,13 +54,13 @@ If you are using the `postman collection`, Update the `token` field on the `infl
 
 ## API Endpoints
 
-### Get all
+### Get all (Method: `GET`)
 ```bash
 curl --location 'http://localhost:8080/api/v1/successful-emails' \
 --header 'Authorization: Bearer <token>'
 ```
 
-### Store
+### Store (Method: `POST`)
 ```bash
 curl --location 'http://localhost:8080/api/v1/successful-emails' \
 --header 'Content-Type: application/json' \
@@ -80,14 +80,14 @@ curl --location 'http://localhost:8080/api/v1/successful-emails' \
 }'
 ```
 
-### Get by ID
+### Get by ID (Method: `GET`)
 ```bash
 curl --location 'http://localhost:8080/api/v1/successful-emails/1' \
 --header 'Authorization: Bearer <token>' \
 --data ''
 ```
 
-### Update
+### Update (Method: `PUT`)
 ```bash
 curl --location --request PUT 'http://localhost:8080/api/v1/successful-emails/1' \
 --header 'Content-Type: application/json' \
@@ -107,7 +107,7 @@ curl --location --request PUT 'http://localhost:8080/api/v1/successful-emails/1'
 }'
 ```
 
-### Delete by ID
+### Delete by ID (Method: `DELETE`)
 ```bash
 curl --location --request DELETE 'http://localhost:8080/api/v1/successful-emails/1' \
 --header 'Authorization: Bearer <token>' \
