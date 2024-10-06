@@ -45,6 +45,7 @@ For the purpose of this demonstration, we are using the user with the ID of `1` 
 curl --location --request POST 'http://localhost:8080/api/v1/tokens'
 ```
 Use the token in the header `Authorization: Bearer <token>`
+If you are using the `postman collection`, Update the `token` field on the `inflektion environment`.
 
 ---
 
