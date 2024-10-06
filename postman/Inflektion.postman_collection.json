@@ -1,0 +1,246 @@
+{
+	"info": {
+		"_postman_id": "deb3b380-90ff-4c46-bbe6-ecf59a2b4760",
+		"name": "Inflektion",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "136256"
+	},
+	"item": [
+		{
+			"name": "Token: Create",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer dc2871987e8593823c07b69d1a707fa743cec183be6fb0bd63bed5c6b50a68e3",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{domain}}/api/v1/tokens",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"tokens"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Emails: Index",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{domain}}/api/v1/successful-emails",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"successful-emails"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Emails: Create",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "1|dulQIgzOxH4xhkLVvMAGRIY3PBDp2wRYxG8gFxqc87bb74c3",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"affiliate_id\": 1001,\r\n    \"envelope\": \"{\\\"to\\\":[\\\"recipient@example.com\\\"],\\\"from\\\":\\\"sender@example.com\\\"}\",\r\n    \"from\": \"sender@example.com\",\r\n    \"subject\": \"Welcome to Our Service\",\r\n    \"dkim\": \"pass\",\r\n    \"SPF\": \"pass\",\r\n    \"spam_score\": 0.1,\r\n    \"email\": \"Return-Path: <sender@example.com>\\r\\nReceived: by 2002:a9d:58c:: with SMTP id n28csp12345iob;\\r\\n        Fri, 22 Sep 2024 08:15:12 -0700 (PDT)\\r\\nFrom: Sender <sender@example.com>\\r\\nTo: Recipient <recipient@example.com>\\r\\nSubject: Welcome to Our Service\\r\\nDate: Fri, 22 Sep 2024 08:15:11 -0700\\r\\nMIME-Version: 1.0\\r\\nContent-Type: text/plain; charset=UTF-8\\r\\n\\r\\nHello,\\n\\nThank you for signing up with us. We are thrilled to have you.\\n\\nBest,\\nCustomer Service\",\r\n    \"sender_ip\": \"192.168.1.1\",\r\n    \"to\": \"[\\\"recipient@example.com\\\"]\",\r\n    \"timestamp\": 1695401711\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{domain}}/api/v1/successful-emails",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"successful-emails"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Emails: View",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "1|dulQIgzOxH4xhkLVvMAGRIY3PBDp2wRYxG8gFxqc87bb74c3",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{domain}}/api/v1/successful-emails/1",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"successful-emails",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Emails: Update",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "1|dulQIgzOxH4xhkLVvMAGRIY3PBDp2wRYxG8gFxqc87bb74c3",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"affiliate_id\": 1001,\r\n    \"envelope\": \"{\\\"to\\\":[\\\"recipient@example.com\\\"],\\\"from\\\":\\\"sender@example.com\\\"}\",\r\n    \"from\": \"sender@example.com\",\r\n    \"subject\": \"Welcome to Our Updated Service\",\r\n    \"dkim\": \"pass\",\r\n    \"SPF\": \"pass\",\r\n    \"spam_score\": 0.1,\r\n    \"email\": \"Return-Path: <sender@example.com>\\r\\nReceived: by 2002:a9d:58c:: with SMTP id n28csp12345iob;\\r\\n        Fri, 22 Sep 2024 08:15:12 -0700 (PDT)\\r\\nFrom: Sender <sender@example.com>\\r\\nTo: Recipient <recipient@example.com>\\r\\nSubject: Welcome to Our Service\\r\\nDate: Fri, 22 Sep 2024 08:15:11 -0700\\r\\nMIME-Version: 1.0\\r\\nContent-Type: text/plain; charset=UTF-8\\r\\n\\r\\nHello,\\n\\nThank you for signing up with us. We are thrilled to have you.\\n\\nBest,\\nCustomer Service\",\r\n    \"sender_ip\": \"192.168.1.1\",\r\n    \"to\": \"[\\\"recipient@example.com\\\"]\",\r\n    \"timestamp\": 1695401711\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{domain}}/api/v1/successful-emails/1",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"successful-emails",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Emails: Delete",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "1|dulQIgzOxH4xhkLVvMAGRIY3PBDp2wRYxG8gFxqc87bb74c3",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{domain}}/api/v1/successful-emails/1",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"successful-emails",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
