@@ -9,19 +9,19 @@ Create a `.env` file in the root directory of the project and copy the content f
 
 2. Build the project
 ```bash
-docker compose -f deploy/docker-compose.yml --env-file ./.env up --build
+docker compose -f deploy/docker-compose.yml --env-file ./.env up --build -d
 ```
 
 3. Database Migration
 ### Running the migrations
 ```bash
-docker exec -t inf_email-parser php artisan migrate
+docker exec -t laravel php artisan migrate
 ```
 
 4. Database Seeding
 ### Running the seeder
 ```bash
-docker exec -t inf_email-parser php artisan db:seed
+docker exec -t laravel php artisan db:seed
 ```
 
 ---
