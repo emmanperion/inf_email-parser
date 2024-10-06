@@ -64,7 +64,7 @@ curl --location 'http://localhost:8080/api/v1/successful-emails' \
 ```bash
 curl --location 'http://localhost:8080/api/v1/successful-emails' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Bearer 1|dulQIgzOxH4xhkLVvMAGRIY3PBDp2wRYxG8gFxqc87bb74c3' \
+--header 'Authorization: Bearer <token>' \
 --data-raw '{
     "affiliate_id": 1001,
     "envelope": "{\"to\":[\"recipient@example.com\"],\"from\":\"sender@example.com\"}",
@@ -83,7 +83,7 @@ curl --location 'http://localhost:8080/api/v1/successful-emails' \
 ### Get by ID
 ```bash
 curl --location 'http://localhost:8080/api/v1/successful-emails/1' \
---header 'Authorization: Bearer 1|dulQIgzOxH4xhkLVvMAGRIY3PBDp2wRYxG8gFxqc87bb74c3' \
+--header 'Authorization: Bearer <token>' \
 --data ''
 ```
 
@@ -91,7 +91,7 @@ curl --location 'http://localhost:8080/api/v1/successful-emails/1' \
 ```bash
 curl --location --request PUT 'http://localhost:8080/api/v1/successful-emails/1' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Bearer 1|dulQIgzOxH4xhkLVvMAGRIY3PBDp2wRYxG8gFxqc87bb74c3' \
+--header 'Authorization: Bearer <token>' \
 --data-raw '{
     "affiliate_id": 1001,
     "envelope": "{\"to\":[\"recipient@example.com\"],\"from\":\"sender@example.com\"}",
@@ -110,6 +110,6 @@ curl --location --request PUT 'http://localhost:8080/api/v1/successful-emails/1'
 ### Delete by ID
 ```bash
 curl --location --request DELETE 'http://localhost:8080/api/v1/successful-emails/1' \
---header 'Authorization: Bearer 1|dulQIgzOxH4xhkLVvMAGRIY3PBDp2wRYxG8gFxqc87bb74c3' \
+--header 'Authorization: Bearer <token>' \
 --data ''
 ```
