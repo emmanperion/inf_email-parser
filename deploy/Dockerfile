@@ -60,8 +60,9 @@ RUN apk add --no-cache \
     gettext-dev \
     freetype-dev \
     nginx \
-    # dependencies for mailparse
-    libtool \
+    # Install cron
+    bash \
+    && apk add --no-cache --virtual .build-deps \
     autoconf \
     build-base \
     && docker-php-ext-configure zip \
@@ -86,6 +87,11 @@ RUN apk add --no-cache \
 COPY --from=build /var/www/html /var/www/html
 COPY ./deploy/nginx.conf /etc/nginx/http.d/default.conf
 
+# set the working directory
 WORKDIR /var/www/html
 
-CMD ["sh", "-c", "nginx && php-fpm"]
+# Add crontab file in the cron.d directory
+COPY ./deploy/crontab /etc/crontabs/www-data
+
+# Command to run the cron job and nginx in foreground
+CMD ["sh", "-c", "crond && nginx && php-fpm"]
