@@ -1,6 +1,9 @@
 # inf_email-parser
 Inflektion Email Parser as part of the Engineering Assessment.
 
+## Pre-requisites
+- Docker Desktop
+
 ## Running the project
 Make sure you have Docker installed on your machine. and then follow the steps below.
 
