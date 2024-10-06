@@ -1,46 +1,62 @@
 # inf_email-parser
+Inflektion Email Parser as part of the Engineering Assessment.
 
 ## Running the project
+Make sure you have Docker installed on your machine. and then follow the steps below.
+
+1. Setup the .env file
+Create a `.env` file in the root directory of the project and copy the content from `/deploy/envfile` file.
+
+2. Build the project
 ```bash
 docker compose -f deploy/docker-compose.yml --env-file ./.env up --build
 ```
 
+3. Database Migration
 ### Running the migrations
 ```bash
 docker exec -t inf_email-parser php artisan migrate
 ```
 
+4. Database Seeding
 ### Running the seeder
 ```bash
 docker exec -t inf_email-parser php artisan db:seed
 ```
 
-### Accessing the project
+---
+
+## Accessing the project
 ```bash
 http://localhost:8080
 ```
 
-### Accessing the API
+---
+
+## Accessing the API
 For easy access, you can use the Postman collection and environment file located at `/postman` directory.
 
 The following sample requests are using `curl` to demonstrate how to interact with the API. 
 You can use any other tool of your preference.
 
-#### Creating a token
+### Creating a token
+For the purpose of this demonstration, we are using the user with the ID of `1` that is created when seeding the database.
 ```bash
 curl --location --request POST 'http://localhost:8080/api/v1/tokens'
 ```
 Use the token in the header `Authorization: Bearer <token>`
 
-### API Endpoints
+---
 
-#### Get all
+## API Endpoints
+
+### Get all
 ```bash
 curl --location 'http://localhost:8080/api/v1/successful-emails' \
 --header 'Authorization: Bearer <token>'
 ```
 
-#### Store
+### Store
 ```bash
 curl --location 'http://localhost:8080/api/v1/successful-emails' \
 --header 'Content-Type: application/json' \
@@ -60,14 +76,14 @@ curl --location 'http://localhost:8080/api/v1/successful-emails' \
 }'
 ```
 
-#### Get by ID
+### Get by ID
 ```bash
 curl --location 'http://localhost:8080/api/v1/successful-emails/1' \
 --header 'Authorization: Bearer 1|dulQIgzOxH4xhkLVvMAGRIY3PBDp2wRYxG8gFxqc87bb74c3' \
 --data ''
 ```
 
-#### Update
+### Update
 ```bash
 curl --location --request PUT 'http://localhost:8080/api/v1/successful-emails/1' \
 --header 'Content-Type: application/json' \
@@ -87,7 +103,7 @@ curl --location --request PUT 'http://localhost:8080/api/v1/successful-emails/1'
 }'
 ```
 
-#### Delete by ID
+### Delete by ID
 ```bash
 curl --location --request DELETE 'http://localhost:8080/api/v1/successful-emails/1' \
 --header 'Authorization: Bearer 1|dulQIgzOxH4xhkLVvMAGRIY3PBDp2wRYxG8gFxqc87bb74c3' \
