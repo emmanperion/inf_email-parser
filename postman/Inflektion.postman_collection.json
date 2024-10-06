@@ -92,7 +92,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "1|dulQIgzOxH4xhkLVvMAGRIY3PBDp2wRYxG8gFxqc87bb74c3",
+							"value": "{{token}}",
 							"type": "string"
 						}
 					]
@@ -133,7 +133,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "1|dulQIgzOxH4xhkLVvMAGRIY3PBDp2wRYxG8gFxqc87bb74c3",
+							"value": "{{token}}",
 							"type": "string"
 						}
 					]
@@ -172,7 +172,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "1|dulQIgzOxH4xhkLVvMAGRIY3PBDp2wRYxG8gFxqc87bb74c3",
+							"value": "{{token}}",
 							"type": "string"
 						}
 					]
@@ -211,7 +211,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "1|dulQIgzOxH4xhkLVvMAGRIY3PBDp2wRYxG8gFxqc87bb74c3",
+							"value": "{{token}}",
 							"type": "string"
 						}
 					]
