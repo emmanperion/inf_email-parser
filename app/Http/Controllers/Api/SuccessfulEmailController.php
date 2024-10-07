@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SuccessfulEmailStore;
+use App\Http\Requests\SuccessfulEmailUpdate;
 use Illuminate\Http\Request;
 use App\Models\SuccessfulEmail;
 use Illuminate\Http\JsonResponse;
@@ -41,7 +42,7 @@ class SuccessfulEmailController extends Controller
      *
      * TODO: Add request validation.
      */
-    public function store(SuccessfulEmailStore $request)
+    public function store(SuccessfulEmailStore $request): JsonResponse
     {
         $plainText = $this->parseEmailService->parseEmailContent($request->email);
 
@@ -72,10 +73,10 @@ class SuccessfulEmailController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(SuccessfulEmailUpdate $request, string $id): JsonResponse
     {
         $email = SuccessfulEmail::findOrFail($id);
-        $email->update($request->all());
+        $email->update($request->validated());
 
         return response()->json([
             'message' => 'Successfully updated the email.',
