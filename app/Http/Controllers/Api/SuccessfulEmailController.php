@@ -63,7 +63,7 @@ class SuccessfulEmailController extends Controller
         $email = SuccessfulEmail::findOrFail($id);
 
         if ($email->raw_text === null || $email->raw_text === '') {
-            $email->raw_text = $this->parseEmailService->parseEmailContent($email->raw_text);
+            $email->raw_text = $this->parseEmailService->parseEmailContent($email->email);
         }
 
         return response()
